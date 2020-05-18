@@ -1,6 +1,55 @@
 import React, {Component} from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import AboutMe from './Components/AboutMe';
+import Heading from './Components/Heading';
+import AboutDave from './Components/AboutDave';
+import NavBar from './Components/NavBar';
+import Pets from './Components/Pets';
+import Students from './Components/Students';
+import Movies from './Components/Movies';
+
+class App extends Component { // Student extends CodeNation
+  render() { // render method is used instead of class based components
+    return (
+      <div className="App">
+        <NavBar />
+        <Heading />
+        <AboutMe />
+        <AboutDave />
+        <Students name="Adam" age={22}/> 
+        <Students name="Kerry" age={28}/>
+        <Students name="Ebuka, the god" age={76}/>
+        <Movies title="Avengers" description="I dunno, I mean, it's only the best movie of all time" recommend="Yes"/>
+        <Pets name="Jack" color="Black and Tan" type="Dog" species="German Shepherd" />
+
+      </div>
+    )
+  }
+}
+// age in react is represented in {}
+
+export default App; // crucial lineeeee
+
+
+
+/*const Student = (props) => {
+  return (
+    <div>
+      <p>
+        Hello, my name is {props.name} and I'm {props.age} years young
+      </p>
+    </div>
+  )
+}*/
+
+
+
+
+
+
+
+
 
 /*function App() {
   return (
@@ -10,7 +59,7 @@ import './App.css';
     </div>
   );
 }*/
-const AboutMe = () => {
+/*const AboutMe = () => {
   return (
     <div>
     <h1>hello</h1>
@@ -44,13 +93,11 @@ class App extends Component {
       <h1>Hello World</h1>
       <AboutMe />
       <AboutUs />
-      <AboutThem />
+      <AboutThem /> 
       </div>
     )
   }
-}
-
-export default App;
+}*/
 
 /*const App = () => {
   return (
