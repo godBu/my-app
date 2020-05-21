@@ -10,12 +10,29 @@ import Students from './Components/Students';
 import Movies from './Components/Movies';
 
 class App extends Component { // Student extends CodeNation
+  state = {
+    persons: [
+      { name: "Bubu", age: 28 },
+      { name: "Dean", age: 29 },
+      { name: "Kerry", age: 25 }
+    ],
+    animals: [
+      { name: "Jack", age: 8 }
+    ]
+  }
+
   render() { // render method is used instead of class based components
+    const eachPerson = this.state.persons.map((student, index) => {
+      return <AboutMe name={student.name} age={student.age} />
+    })
     return (
       <div className="App">
         <NavBar />
         <Heading />
-        <AboutMe />
+        <AboutMe name="Boux" age={28}/>
+        <AboutMe name={this.state.persons[0].name} age={this.state.persons[0].age} />
+        <AboutMe name={this.state.animals[0].name} age={this.state.animals[0].age} />
+        {eachPerson}
         <AboutDave />
         <Students name="Adam" age={22}/> 
         <Students name="Kerry" age={28}/>
