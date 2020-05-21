@@ -4,7 +4,7 @@ const Pets = (props) => {
     return (
       <div>
         <ul>
-          <li>Name: {props.name}</li>
+          <li>PetName: {props.petname}</li>
           <li>Color: {props.color}</li>
           <li>Type: {props.type}</li>
           <li>Species: {props.species}</li>

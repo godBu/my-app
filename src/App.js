@@ -2,44 +2,55 @@ import React, {Component} from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import AboutMe from './Components/AboutMe';
-import Heading from './Components/Heading';
-import AboutDave from './Components/AboutDave';
-import NavBar from './Components/NavBar';
 import Pets from './Components/Pets';
-import Students from './Components/Students';
-import Movies from './Components/Movies';
 
 class App extends Component { // Student extends CodeNation
   state = {
     persons: [
-      { name: "Bubu", age: 28 },
-      { name: "Dean", age: 29 },
-      { name: "Kerry", age: 25 }
+      { personname: "Bubu", personage: 28 },
+      { personname: "Dean", personage: 29 },
+      { personname: "Kerry", personage: 25 }
     ],
     animals: [
-      { name: "Jack", age: 8 }
-    ]
+      { petname: "Jack", color: "black and tan", type: "dog", species: "German Shepherd" }
+    ],
+    digits: [
+      1, 2, 3, 4
+    ],
+    currentNumber: ""
+  }
+
+saveNumber = (event) => {
+  console.log(event.target.value);
+  this.setState({
+    currentNumber: event.target.value
+  })
+}
+
+addNumber = (number) => {
+    this.setState({
+      digits: [...this.state.digits, this.state.currentNumber],
+      currentNumber: ""
+    })
   }
 
   render() { // render method is used instead of class based components
     const eachPerson = this.state.persons.map((student, index) => {
-      return <AboutMe name={student.name} age={student.age} />
+      return <AboutMe personname={student.personname} personage={student.personage} key={index} />
+    })
+    const eachPet = this.state.animals.map((pet) => {
+      return <Pets petname={pet.petname} color={pet.color} type={pet.type} species={pet.species} />
+    })
+    const eachNumber = this.state.digits.map((singleNumber, index) => {
+    return <li key={index}>{singleNumber}</li>
     })
     return (
       <div className="App">
-        <NavBar />
-        <Heading />
-        <AboutMe name="Boux" age={28}/>
-        <AboutMe name={this.state.persons[0].name} age={this.state.persons[0].age} />
-        <AboutMe name={this.state.animals[0].name} age={this.state.animals[0].age} />
         {eachPerson}
-        <AboutDave />
-        <Students name="Adam" age={22}/> 
-        <Students name="Kerry" age={28}/>
-        <Students name="Ebuka, the god" age={76}/>
-        <Movies title="Avengers" description="I dunno, I mean, it's only the best movie of all time" recommend="Yes"/>
-        <Pets name="Jack" color="Black and Tan" type="Dog" species="German Shepherd" />
-
+        {eachPet}
+      <ul>{eachNumber}</ul>
+      <input type="number" onChange={this.saveNumber} value={this.state.currentNumber} />
+      <button onClick={() => this.addNumber(10)}>Add Number</button>
       </div>
     )
   }
@@ -50,7 +61,19 @@ export default App; // crucial lineeeee
 
 
 
-/*const Student = (props) => {
+/*
+     <NavBar />
+        <Heading />
+        <AboutMe name="Boux" age={28}/>
+        <AboutMe name={this.state.persons[0].name} age={this.state.persons[0].age} />
+        {/*<AboutMe name={this.state.animals[0].name} age={this.state.animals[0].age} .}
+        <AboutDave />
+        <Students name="Adam" age={22}/> 
+        <Students name="Kerry" age={28}/>
+        <Students name="Ebuka, the god" age={76}/>
+        <Movies title="Avengers" description="I dunno, I mean, it's only the best movie of all time" recommend="Yes"/>
+        <Pets name="Jack" color="Black and Tan" type="Dog" species="German Shepherd" />
+const Student = (props) => {
   return (
     <div>
       <p>

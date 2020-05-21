@@ -4,8 +4,8 @@ const Students = (props) => {
     return (
       <div>
         <ul>
-          <li>Name: {props.name}</li>
-          <li>Age: {props.age}</li>
+          <li>StudentName: {props.studentname}</li>
+          <li>Age: {props.studentage}</li>
         </ul>
       </div>
     )
