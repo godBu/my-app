@@ -11,9 +11,11 @@ class App extends Component { // Student extends CodeNation
       { personname: "Dean", personage: 29 },
       { personname: "Kerry", personage: 25 }
     ],
+    
     animals: [
       { petname: "Jack", color: "black and tan", type: "dog", species: "German Shepherd" }
     ],
+
     digits: [
       1, 2, 3, 4
     ],
